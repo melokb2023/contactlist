@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Add New Contact</ion-title>
-    <ion-icon name="close" slot="end" size="large" (click)="dismiss()"></ion-icon>
+    <ion-icon name="close" slot="end" size="large" class="ion-padding" (click)="dismiss()"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
@@ -16,7 +16,7 @@
     <ion-select [(ngModel)]="contactPriority">
       <ion-select-option value="low">low</ion-select-option>
       <ion-select-option value="middle">middle</ion-select-option>
-      <ion-select-option value="high">high</ion-select-option>
+      <ion-select-option value="high" selected>high</ion-select-option>
     </ion-select>
   </ion-item>
 
@@ -45,6 +45,6 @@
     </ion-chip>
   </ion-item>
 
-  <ion-button class="ion-margin" expand="block" (click)="add()">Add Contact</ion-button>
+  <ion-button class="ion-margin" expand="block" (click)="update()">Update Contact</ion-button>
   </ion-card>
 </ion-content>

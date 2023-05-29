@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { AddNewContactPage } from '../add-new-contact/add-new-contact.page';
+import { ContactlistService } from '../contactlist.service';
+import { UpdatecontactPage } from '../updatecontact/updatecontact.page';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -8,35 +10,46 @@ import { AddNewContactPage } from '../add-new-contact/add-new-contact.page';
 })
 export class HomePage {
 
-  contactList = [{
-    contactName: 'Kyle Melo',
-    contactNumber:'09061072012',
-    contactCategory:'Family',
-    contactPriority:'high'
-  },
-{
-    contactName: 'Mark Twain',
-    contactNumber:'09347859017',
-    contactCategory:'Family',
-    contactPriority:'middle'
-
-},
-{
-    contactName: 'John Lloyd Cruz',
-    contactNumber:'09784598076',
-    contactCategory:'Celebrity',
-    contactPriority:'low'
-}]
+  contactList = []
   
 
-  constructor(public modalCtrl:ModalController) {}
+  constructor(public modalCtrl:ModalController, public contactListService:ContactlistService) {}
 
-  async addTask(){
+  async addContact() {
     const modal = await this.modalCtrl.create({
-      component:AddNewContactPage
+      component: AddNewContactPage,
     })
-
+    modal.onDidDismiss().then(newContact =>{
+      this.getAllContacts()
+    })
     return await modal.present()
   }
 
+  getAllContacts(){
+    this.contactList = this.contactListService.getAllContacts()
+    console.log(this.contactListService.getAllContacts());
+  }
+
+  delete(key: any) { 
+    this.contactListService.deleteContact(key)
+    this.getAllContacts()
+  }
+
+  async update(selectedContact: any){
+    const modal = await this.modalCtrl.create({
+      component: UpdatecontactPage,
+      componentProps: {task: selectedContact}
+    })
+
+    modal.onDidDismiss().then(()=>{
+      this.getAllContacts()
+    })
+    
+    return await modal.present()
+  }
+
+
+   
 }
+
+

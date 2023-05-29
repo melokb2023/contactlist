@@ -14,7 +14,11 @@ const routes: Routes = [
   {
     path: 'add-new-contact',
     loadChildren: () => import('./add-new-contact/add-new-contact.module').then( m => m.AddNewContactPageModule)
+  },  {
+    path: 'updatecontact',
+    loadChildren: () => import('./updatecontact/updatecontact.module').then( m => m.UpdatecontactPageModule)
   },
+
 ];
 
 @NgModule({
