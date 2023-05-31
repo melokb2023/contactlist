@@ -5,19 +5,16 @@ import {Storage} from '@ionic/storage-angular';
 })
 export class ContactlistService {
 
-   
-  index = 0;
 
-    
   constructor(private storage: Storage) { 
     this.init()
   } 
   
-  addContact(key:string,value:any){
+  addContact(key:any,value:any){
     this.storage.set(key,value)
   }
 
-  deleteContact(key: string){
+  deleteContact(key: any){
     this.storage.remove(key) 
   }
 
@@ -28,7 +25,7 @@ export class ContactlistService {
 
     getAllContacts(){
       let contacts: any = []
-      this.storage.forEach((key, value, index) => {
+      this.storage.forEach((key: any, value: any, index: any) => {
       contacts.push({'key':value, 'value':key})
       }); 
       return contacts 

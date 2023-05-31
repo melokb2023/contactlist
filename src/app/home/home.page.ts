@@ -3,6 +3,7 @@ import { ModalController } from '@ionic/angular';
 import { AddNewContactPage } from '../add-new-contact/add-new-contact.page';
 import { ContactlistService } from '../contactlist.service';
 import { UpdatecontactPage } from '../updatecontact/updatecontact.page';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
