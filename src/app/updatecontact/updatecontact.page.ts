@@ -29,7 +29,7 @@ export class UpdatecontactPage implements OnInit {
     this.contactCategory = this.contact.value.contactCategory
     this.contactPriority = this.contact.value.contactPriority
     this.categorySelectedCategory = this.contact.value.contactCategory
-    //console.log(this.contact);
+    console.log(this.contact);
 
   }
 

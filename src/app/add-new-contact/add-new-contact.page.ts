@@ -11,13 +11,14 @@ import { ContactlistService } from '../contactlist.service';
 export class AddNewContactPage implements OnInit {
   categories=['family','celebrity']
   
-  categorySelectedCategory:any;
+  categorySelectedCategory:string = '';
   newContactObject = {}
-  contactName: any;
-  contactNumber: any;
-  contactCategory:any;
-  contactPriority: any; 
-  contactObject:any;
+  contactName: string = '';
+  contactNumber: string = '';
+  contactCategory:string = '';
+  contactPriority: string = '';
+  contactObject:string = '';
+  
   
  
   
@@ -46,7 +47,8 @@ export class AddNewContactPage implements OnInit {
     this.dismiss()
   }
 
-  selectCategory(index:any){
+  
+  selectCategory(index: any){
     this.categorySelectedCategory = this.categories[index]
     console.log(this.categorySelectedCategory);
   }
