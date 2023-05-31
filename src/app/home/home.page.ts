@@ -10,7 +10,7 @@ import { UpdatecontactPage } from '../updatecontact/updatecontact.page';
 })
 export class HomePage {
 
-  contactList = []
+  contactList!:any[];
   
 
   constructor(public modalCtrl:ModalController, public contactListService:ContactlistService) {}
@@ -38,7 +38,7 @@ export class HomePage {
   async update(selectedContact: any){
     const modal = await this.modalCtrl.create({
       component: UpdatecontactPage,
-      componentProps: {task: selectedContact}
+      componentProps: {contact: selectedContact}
     })
 
     modal.onDidDismiss().then(()=>{

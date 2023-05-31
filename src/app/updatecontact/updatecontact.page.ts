@@ -21,15 +21,14 @@ export class UpdatecontactPage implements OnInit {
   constructor(public modalCtrl:ModalController, public contactListService:ContactlistService) { }
 
   ngOnInit() {
-    this.categories.push('family')
-    this.categories.push('celebrity')
+
 
     this.contactName = this.contact.value.contactName
     this.contactNumber = this.contact.value.contactNumber
     this.contactCategory = this.contact.value.contactCategory
     this.contactPriority = this.contact.value.contactPriority
     this.categorySelectedCategory = this.contact.value.contactCategory
-    //console.log(this.contact);
+    console.log(this.contact);
 
   }
 
